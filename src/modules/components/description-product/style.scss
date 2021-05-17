@@ -1,0 +1,11 @@
+@import './../../../style/mixins.scss';
+
+.product-info {
+    display: flex;
+    .info-img-wrap {
+        img {
+            max-width: 300px;
+            height: 300px;
+        }
+    }
+}

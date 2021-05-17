@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheets" href="./src/style/index.scss" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header id="header">
+        <div class="header-logo-part">
+            <div class="container">
+                <img src="src/style/assets/image/logo.svg" alt="logo" class="logo" />
+                <span>ExpressFood</span>
+            </div>
+        </div>
+        <div class="header-search-basket">
+            <div class="container">
+                <div class="search-block-wrapper">
+                    <div class="search-block">
+                        <input type="text" class="searching" id="searching" placeholder="Введите наименование..." />
+                        <img src='./src/style/assets/image/search.svg' id="btn-search" alt='search-icon' />
+                    </div>
+                </div>
+                <div class="basket-block">
+                    <a href="/orderPage">
+                        <img src='./src/style/assets/image/basket.png' class="basket" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+        <div class="main-content">
+            <div class="filters">
+                <h3>Фильтр</h3>
+                <div class="price-filter">
+                    <p>Цена</p>
+                    <select>
+                        <option>от большего к меньнему</option>
+                        <option>от меньшего к большему</option>
+                    </select>
+                </div>
+                <div class="category-filter">
+                    Категории
+                    <ul id="category-list"></ul>
+                </div>
+            </div>
+            <div id="products-wrapper" class="products-wrapper"></div>
+
+            <div id="myModal" class="modal"></div>
+
+        </div>
+        <div class="pagination-wrapper"></div>
+    <script src="main.js" type="module"></script>
+</body>
+</html>

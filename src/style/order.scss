@@ -1,0 +1,135 @@
+.basket-wrapper {
+    font-family: 'Dosis', sans-serif;
+    margin-top: 36px;
+    padding: 0px 48px;
+    h2 {
+        text-align: end;
+    }
+    .table-basket {
+        border: 1px solid #e7e7e7;
+        margin-bottom: 16px;
+        width: 100%;
+        background-color: #fff;
+        caption {
+            text-align: left;
+            background-color: #b0c1af;
+            padding: 12px 16px;
+        }
+        tr {
+            td {
+                img {
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 8px;
+                }
+                button {
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    font-size: 20px;
+                    cursor: pointer;
+                    color: #27aa7b;
+                }
+                .counter {
+                    display: flex;
+                    justify-content: center;
+                    padding: 2px 5px;
+                    border-radius: 20px;
+                    border: 1px solid #e7e7e7;
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    max-width: 100px;
+                }
+                &:first-child {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                }
+            }
+        }
+    }
+    .amount-price-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+        .table-amount-price {
+            border: 1px solid #e7e7e7;
+            margin-bottom: 8px;
+            background-color: #fff;
+            width: 50%;
+            tr {
+                &:first-child {
+                    td {
+                    padding: 16px;
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 24px;
+                        background-color: #f8f9fa;
+                        color: #6e6e77;
+                        margin: 0; 
+                    }
+                }
+                &:nth-child(2) {
+                    font-weight: 600;
+                    margin-right: 12px;
+                    margin: 0;
+                    color: #6e6e77;
+                    margin-bottom: 8px;
+                    td {
+                        &:last-child {
+                            color: #1c1e24;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+                &:last-child {
+                    font-weight: 600;
+                    margin-right: auto;
+                    td {
+                        &:last-child {
+                            line-height: 32px;
+                            font-size: 24px;
+                            margin-right: 4px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+        .checkout {
+            background-color: #b0c1af;
+            border: none;
+            outline: none;
+            color: #fff;
+            padding: 10px;
+            border-radius: 12px;
+            width: 50%;
+        }
+    }
+    .person-info-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .person-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 450px;
+            input {
+                width: 100%;
+                padding: 8px 0px;
+                text-indent: 16px;
+                margin-bottom: 8px;
+            }
+            button {
+                width: 100%;
+                padding: 8px;
+                margin-top: 8px;
+                cursor: pointer;
+            }
+        }
+    }
+}
