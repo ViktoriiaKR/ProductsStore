@@ -1,4 +1,4 @@
-# jasa script products store
+# java script products store
 
 ## Available Scripts
 
