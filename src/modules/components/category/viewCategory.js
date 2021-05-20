@@ -6,12 +6,8 @@ export default class ViewCategory {
     };
 
     renderListsCategory(data){
-        const filterUniqueCategoies = data.filter((set => f => !set.has(f.category) && set.add(f.category))(new Set));
-
-        const listsCategory = filterUniqueCategoies.map(function (item) {
-            return `<li><input type="checkbox" />${item.category}</li>`
-            
-            
+        const listsCategory = data.map(function (item) {
+            return `<option data-value="${item.CATEGORY}" value="${item.CATEGORY}">${item.CATEGORY}</option>`
         });
 
         this.categories.innerHTML += listsCategory.join('');

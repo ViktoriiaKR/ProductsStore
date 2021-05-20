@@ -1,16 +1,15 @@
-import ModelProducts from './../products/modelProduct.js';
 import ViewCategory from './viewCategory.js';
 
 export default class ControllerCategory {
-    constructor(){
-        this.modelProductCateg = new ModelProducts();
-        this.viewCategory = new ViewCategory();
+    constructor(publisher){
+        this.view = new ViewCategory(this.choiceCategory);
 
-        this.loadCategory();
+        this.publisher = publisher;
+        publisher.subscribe("PRODUCTS_LIST", this.loadCategory);
     };
     
-    loadCategory = () => {
-        this.modelProductCateg.loadProducts()
-            .then(d => this.viewCategory.renderListsCategory(d));
+    loadCategory = (data) => {
+        let getCategories = data.filter((set => f => !set.has(f.CATEGORY) && set.add(f.CATEGORY))(new Set))
+        this.view.renderListsCategory(getCategories)
     };
 }; 

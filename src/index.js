@@ -7,6 +7,6 @@ import Publisher from "./helpers/publisher.js";
 
 const publisher = new Publisher();
 const controllerLoadProduct = new ControllerProd(publisher);
-const controllerCategory = new ControllerCategory();
+const controllerCategory = new ControllerCategory(publisher);
 const controllerBasket = new ControllerBasket(publisher);
 const controllerDescr = new ControllerDescr(publisher);

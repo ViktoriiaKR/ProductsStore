@@ -2,25 +2,64 @@ import ModelBasket from './modelBasket.js';
 import ViewBasket from './viewBasket.js';
 
 export default class ControllerBasket {
+    #obj = {};
+    #arr = [];
     constructor(publisher){
         this.model= new ModelBasket();
-        this.view = new ViewBasket();
+        this.view = new ViewBasket(
+            this.handleIncrease,
+            this.handleDecrease,
+            this.handleRemoveItem,
+            this.handleCheckoutOrder,
+            this.handleHistoryOrders,
+        );
 
-        this.loadBasket();
         this.publisher = publisher;
-        this.publisher.subscribe('ADD_TO_BASKET', this.hanleAddOrdersToBasket);
+        this.publisher.subscribe('ADD_TO_BASKET', this.handleAddOrdersToBasket);
+    };
 
-        console.log('контроллер корзины')
-    }
+    handleAddOrdersToBasket = data => {
+        this.#obj = data;
+        this.#arr.push(data);
+        this.view.renderContentBasket(this.#arr);
+    };
+    
+    handleIncrease = (event) => {
+        let id = event.target.dataset.id;
+        let objForIncr = this.#arr.find(item => item.ID === id);
+        this.model.newOrderProcesIncr(objForIncr);
+        this.view.renderContentBasket(this.#arr);
+    };
 
-    loadBasket() {
-        const buy = this.model.loadFromLS();
-        this.view.renderContentBasket(buy);
-            console.log(buy, 'buy')
-    }
+    handleDecrease = (event) => {
+        let id = event.target.dataset.id;
+        let objForDecr = this.#arr.find(item => item.ID === id);
+        this.model.newOrderProcesDescr(objForDecr);
+        this.view.renderContentBasket(this.#arr);
+    };
 
-    hanleAddOrdersToBasket = data => {
-        this.model.addNewPurchase(data)
-        this.view.renderContentBasket(newPurchase);
-    }
+    handleRemoveItem = (event) => {
+        let id = event.target.dataset.id;
+        this.#arr = this.model.removeItemBasket(this.#arr, id);
+        if (this.#arr.length <= 0) {
+            document.querySelector('.person-info-wrapper').style.display = "none";
+        };
+        this.view.renderContentBasket(this.#arr);
+    };
+
+    handleCheckoutOrder = (event) => {
+        let formValue = this.view.handleGetFormData();
+        for (var i = 0; i < this.#arr.length; i++) {
+            this.#arr[i].BAYER_NAME = formValue.bayerName;
+            this.#arr[i].BAYER_EMAIL = formValue.bayerEmail;
+            this.#arr[i].BAYER_TEL = formValue.bayerTel;
+          }
+        this.model.registrationOrder(this.#arr);
+        event.preventDefault();
+    };
+
+    handleHistoryOrders = () => {
+        let info = JSON.parse(localStorage.getItem('orders'));
+        this.view.renderHistory(info);
+    };
 }; 

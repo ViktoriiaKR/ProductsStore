@@ -7,13 +7,10 @@ export default class ControllerDescr {
         this.viewDescr = new ViewDescription();
         
         this.publisher = publisher;
-        this.publisher.subscribe('ADD_ID_DESCR', this.loadDescription)
-        
+        this.publisher.subscribe('SHOW_DESRCIPTION', this.loadDescription);
     };
 
-    loadDescription = (id) => {
-        this.modelDescr.loadDescrProduct(id)
-            .then(descr => this.viewDescr.renderDescription(descr));
-        
-    };  
+    loadDescription = (descr) => {
+        this.viewDescr.renderDescription(descr);
+    };
 }; 

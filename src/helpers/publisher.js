@@ -3,7 +3,6 @@ export default class Publisher {
     subscribe = (event, listener) => {
         if (!this.events[event]) this.events[event] = [];
         this.events[event].push(listener);
-        console.log(this.events, 'THIS EVENTS SUBSCRIBE')
     };
 
     unsubscribe = (event, listener) => {
@@ -11,9 +10,8 @@ export default class Publisher {
         this.events[event] = this.events[event].filter( func => func != listener)
     };
 
-    notify = (event, data) => { //передача данных всем подписчикам котоые ожидают данные
+    notify = (event, data) => {
         if (!this.events[event]) this.events[event] = [];
         this.events[event].forEach(func => func(data));
-        console.log(data, 'notify')
     };
 };

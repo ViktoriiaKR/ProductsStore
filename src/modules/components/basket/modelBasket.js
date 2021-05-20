@@ -1,25 +1,46 @@
 export default class ModelBasket {
-    #buy = [];
-    
-    loadFromLS() {
-        this.#buy = JSON.parse(localStorage.getItem('purchases') || "[]");
-        return this.buy;
+    #items = [];
+
+    loadFromLS(){
+        this.#items = JSON.parse(localStorage.getItem('orders') || "[]");
+        return this.items;
     };
 
-    get buy() {
-        return JSON.parse(JSON.stringify(this.#buy))
+    get orders(){
+        return JSON.parse(JSON.stringify(this.#items ));
+    };
+
+    newOrderProcesIncr = (data, id) => {
+        data.COUNT = Number(data.COUNT) + 1;
+        data.COUNT = String(data.COUNT);
+        return data;
+    };
+
+    newOrderProcesDescr = (data) => {
+        if (data.COUNT > 1) {
+            data.COUNT = Number(data.COUNT) - 1;
+            data.COUNT = String(data.COUNT);
+        };
+        return data;
+    };
+
+    removeItemBasket = (data, id) => {
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].ID === id) {
+                data.splice(i, 1);
+                break;
+            };
+        };
+        return data;
+    };
+
+    writeToLS(){
+        localStorage.setItem('orders', JSON.stringify(this.#items));
     }
 
-    addNewPurchase = (data) => {
-        if (!this.#buy.find(({id}) => id == data.id)) {
-            this.#buy.push(data);
-        }
-        this.writeToLS();
-        return this.buy
-    }
-
-    writeToLS() {
-        localStorage.setItem('purchases', JSON.stringify(this.#buy));
-    }
-    
+    registrationOrder = (data) => {
+        let getLS = JSON.parse(localStorage.getItem('orders') || "[]");
+        let toSetLS = getLS.concat(data);
+        localStorage.setItem('orders', JSON.stringify(toSetLS));  
+    };
 };

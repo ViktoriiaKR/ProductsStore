@@ -5,6 +5,7 @@
     padding: 0px 8px;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
+    margin-top: 12px;
     .product-card {
         @include flex-col;
         font-family: "Dosis", sans-serif;
@@ -77,10 +78,6 @@
     }
 }
 
-// img:hover + .card-description {
-//     display: block !important;
-// }
-
 @media (max-width: 1024px) {
     .main-content {
         .products-wrapper {
@@ -89,12 +86,11 @@
     }
 }
 
-
-
-@media(max-width: 768px) {
+@media(max-width: 760px) {
     .main-content {
-        margin: 0px 24px;
+        margin: 0px 12px;
         flex-direction: column;
+        align-items: center;
         .filters {
             display: contents;
         }
@@ -105,7 +101,7 @@
     }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 480px) {
     .main-content { 
         .products-wrapper {
             width: 100%;

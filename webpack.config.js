@@ -20,11 +20,7 @@ plugins.push(
     new HtmlWebpackPlugin({
         filename: 'orderPage',
         template: path.join(__dirname, 'orderPage.html'),
-    }),
-    new HtmlWebpackPlugin({
-        filename: 'description',
-        template: path.join(__dirname, 'descrProduct.html'),
-    }),
+    })
 )
 
 let conf = {
