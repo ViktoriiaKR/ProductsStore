@@ -1,9 +1,18 @@
 import './style.scss';
 
 export default class ViewProducts {
-    constructor(onClickRouteToDescription, onClickSaveToBasket, choiceCategory, handleClickSearch, choicePrice, onClickToPage){
+    constructor(
+        onClickRouteToDescription,
+        onClickSaveToBasket,
+        choiceCategory,
+        handleClickSearch,
+        choicePrice,
+        onClickToPage
+    ){
         this.products = document.getElementById('products-wrapper');
         this.inputSearch = document.getElementById("searching");
+        this.list_element = document.getElementById('products-wrapper');
+        this.pagination_element = document.getElementById('pagination');
         this.onClickRouteToDescription = onClickRouteToDescription;
         this.onClickSaveToBasket = onClickSaveToBasket;
         this.choiceCategory = choiceCategory;
@@ -28,30 +37,19 @@ export default class ViewProducts {
                     </div>`
   
         });
-
         this.products.innerHTML = listsProducts.join('');
         this.addListeners();
     };
-
-    renderPagination() {
-        const paginate = pageNumbers.map(function (numb) {
-            return `<li key={number} className={style.pageItem}>
-            <a href='#' onClick={() => props.paginate(number)} className="pag-route">
-                ${numb}
-            </a>
-        </li>`
-        }
-    )}
 
     addListeners(){
         [...document.querySelectorAll('.card-description')]
             .forEach(btn => btn.addEventListener('click', this.onClickRouteToDescription));
         [...document.querySelectorAll('.add-to-basket')]
             .forEach(btn => btn.addEventListener('click', this.onClickSaveToBasket));
+        [...document.querySelectorAll('.pag-route')]
+            .forEach(btn => btn.addEventListener('click', this.onClickToPage));
         document.getElementById("category-list").addEventListener("change", this.choiceCategory);
         document.getElementById("sort-by-price").addEventListener("change", this.choicePrice);
         document.getElementById('btn-search').addEventListener('click', () => this.handleClickSearch(this.inputSearch.value));
-        [...document.querySelectorAll('.pag-route')]
-            .forEach(btn => btn.addEventListener('click', this.onClickToPage));
-    }
+    };
 };

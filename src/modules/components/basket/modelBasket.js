@@ -1,16 +1,6 @@
 export default class ModelBasket {
-    #items = [];
 
-    loadFromLS(){
-        this.#items = JSON.parse(localStorage.getItem('orders') || "[]");
-        return this.items;
-    };
-
-    get orders(){
-        return JSON.parse(JSON.stringify(this.#items ));
-    };
-
-    newOrderProcesIncr = (data, id) => {
+    newOrderProcesIncr = (data) => {
         data.COUNT = Number(data.COUNT) + 1;
         data.COUNT = String(data.COUNT);
         return data;
@@ -34,13 +24,10 @@ export default class ModelBasket {
         return data;
     };
 
-    writeToLS(){
-        localStorage.setItem('orders', JSON.stringify(this.#items));
-    }
-
     registrationOrder = (data) => {
         let getLS = JSON.parse(localStorage.getItem('orders') || "[]");
         let toSetLS = getLS.concat(data);
-        localStorage.setItem('orders', JSON.stringify(toSetLS));  
+        localStorage.setItem('orders', JSON.stringify(toSetLS)); 
+        alert('Your order has been successfully completed !')
     };
 };

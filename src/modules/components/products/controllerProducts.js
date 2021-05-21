@@ -33,10 +33,8 @@ export default class ControllerProd {
     choicePrice = (event) => {
         let selected = event.target.value;
         let sortByPrice = this.modelProduct.getDataByPrice(selected);
-
         this.viewProduct.renderListsProd(sortByPrice)
-        console.log(sortByPrice)
-    }
+    };
     
     onClickRouteToDescription = event => {
         const id = event.target.dataset.id;

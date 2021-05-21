@@ -6,7 +6,7 @@ import ControllerDescr from "./modules/components/description-product/controller
 import Publisher from "./helpers/publisher.js";
 
 const publisher = new Publisher();
-const controllerLoadProduct = new ControllerProd(publisher);
-const controllerCategory = new ControllerCategory(publisher);
-const controllerBasket = new ControllerBasket(publisher);
-const controllerDescr = new ControllerDescr(publisher);
+const loadProduct = new ControllerProd(publisher);
+const category = new ControllerCategory(publisher);
+const basket = new ControllerBasket(publisher);
+const descr = new ControllerDescr(publisher);

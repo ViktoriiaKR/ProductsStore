@@ -1,18 +1,36 @@
 @import './../../../style/mixins.scss';
 
 .product-info {
-    display: flex;
+    @include flex-col;
+    align-items: center;
     position: relative;
     .info-img-wrap {
-    
+        display: inline-block;
+        overflow: hidden;
         img {
             max-width: 300px;
-      
             object-fit: cover;
+            transition: 1s;
+            display: block;
+            &:hover {
+                transform: scale(1.2);
+            }
         }
     }
     .info-text-wrap {
         padding: 24px 8px;
+        width: 100%;
+        a {
+            color: #4682b4;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .itemPrice {
+            color: #4682b4;
+            font-size: 21px;
+            margin-bottom: 0;
+        }
     }
     .info-img-wrap {
         display: flex;
@@ -20,13 +38,18 @@
     }
 }
 
-@media(max-width: 768px) {
+@media(max-width: 480px) {
     .modal {
         .modal-content {
             .product-info {
-                flex-direction: column;
                 .info-img-wrap {
-                    justify-content: center;
+                    img {
+                        max-width: 200px;
+                    }
+                }
+                .info-text-wrap {
+                    margin: 8px;
+                    padding: 0;
                 }
             }
         }

@@ -50,6 +50,7 @@
                 </div>
             </div>
             <div id="products-wrapper" class="products-wrapper"></div>
+            <div class="pagenumbers" id="pagination"></div>
 
             <div id="myModal" class="modal"></div>
 
@@ -81,8 +82,8 @@
                             />
                             <input
                                 type="tel"
-                                placeholder="Your telephone (format: +380XX-XXX-XX-XX)"
-                                pattern="(\+?\d[- .]*){7,13}"
+                                placeholder="Your telephone (format: +380 (XX) XXX-XX-XX)"
+                                pattern="[\+]\d{3}\s[\(]\d{2}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"
                                 class="input-tel"
                                 required
                             />
@@ -96,15 +97,16 @@
                         </form>
                     </div>
                     <div class="history-of-orders">
-                        <button>History of orders</button>
-                        <div class="history-wrapper"></div>
+                        <button class="btn-show-history">History of orders</button>
+                        <div class="history-wrapper">
+                            <table class="table-history">
+                                <span class="close-history">&times;</span>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <nav class="pagination-wrapper">
-            <ul class="pag-ul"></ul>
-        </nav>
     <script src="main.js" type="module"></script>
 </body>
 </html>

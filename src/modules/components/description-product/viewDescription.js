@@ -30,10 +30,10 @@ export default class ViewDescription {
                     </div>
                     <div class="info-text-wrap">
                         <a href="#" title=${descr.PRODUCT_NAME} class="itemTitle">${descr.PRODUCT_NAME}</a>
-                        <p> category: ${descr.CATEGORY}</p>
-                        <p>units: ${descr.UNITS}</p>
-                        <p>ingredients: ${descr.INGRIDIENTS}</p>
-                        <p>manufacturer: ${descr.MANUFACTURE}</p>
+                        <p><span>category:</span> ${descr.CATEGORY}</p>
+                        <p><span>units:</span> ${descr.UNITS}</p>
+                        <p><span>ingredients:</span> ${descr.INGRIDIENTS}</p>
+                        <p><span>manufacturer:</span> ${descr.MANUFACTURE}</p>
                         <p>${descr.AMOUNT} <span>pc.</span></p>
                         <p class="itemPrice">${descr.PRICE} <span>UAH</span></p>
                     </div>             

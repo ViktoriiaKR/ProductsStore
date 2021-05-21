@@ -107,5 +107,15 @@
             width: 100%;
             grid-template-columns: 100%;
         }
+        .filters {
+            h3 {
+                margin: 5px 0px;
+            }
+            .price-filter, .category-filter {
+                p {
+                    margin: 5px 0px 10px 0px;
+                }
+            }
+        }
     }
 }

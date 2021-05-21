@@ -125,7 +125,7 @@ header {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
-    width: 80%;
+    width: 60%;
 }
   
 
@@ -152,5 +152,11 @@ header {
 @media(max-width: 760px) {
     .container {
         margin: 0px 24px;
+    }
+}
+
+@media(max-width: 480px) {
+    .modal-content {
+        width: 80%;
     }
 }

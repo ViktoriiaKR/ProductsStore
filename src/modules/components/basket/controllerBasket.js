@@ -2,7 +2,6 @@ import ModelBasket from './modelBasket.js';
 import ViewBasket from './viewBasket.js';
 
 export default class ControllerBasket {
-    #obj = {};
     #arr = [];
     constructor(publisher){
         this.model= new ModelBasket();
@@ -19,7 +18,6 @@ export default class ControllerBasket {
     };
 
     handleAddOrdersToBasket = data => {
-        this.#obj = data;
         this.#arr.push(data);
         this.view.renderContentBasket(this.#arr);
     };
@@ -41,9 +39,6 @@ export default class ControllerBasket {
     handleRemoveItem = (event) => {
         let id = event.target.dataset.id;
         this.#arr = this.model.removeItemBasket(this.#arr, id);
-        if (this.#arr.length <= 0) {
-            document.querySelector('.person-info-wrapper').style.display = "none";
-        };
         this.view.renderContentBasket(this.#arr);
     };
 
